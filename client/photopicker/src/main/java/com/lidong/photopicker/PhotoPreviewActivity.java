@@ -45,6 +45,11 @@ public class PhotoPreviewActivity extends AppCompatActivity implements PhotoPage
 
         paths = new ArrayList<>();
         ArrayList<String> pathArr = getIntent().getStringArrayListExtra(EXTRA_PHOTOS);
+        if (pathArr.contains("000000")){
+            //预览的时候，在选定数量不足6张时 不显示最后的空图片
+            pathArr.remove("000000");
+        }
+
         if(pathArr != null){
             paths.addAll(pathArr);
         }
